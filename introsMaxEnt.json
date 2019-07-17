@@ -1,0 +1,156 @@
+{
+  "experiment": {
+    "administrativeData": {
+      "currentInstance": {
+        "description": "This research attempted to reproduce Figure 4 of Phillips et al. 2006.",
+        "authorData": [
+          {
+            "authorName": "Santiago Núñez-Corrales",
+            "authorAffiliation": ["University of Illinois at Urbana-Champaign"],
+            "authorEmail": "nunezco2@illinois.edu"
+          },
+          {
+            "authorName": "Bertram Ludäscher",
+            "authorAffiliation": ["University of Illinois at Urbana-Champaign"],
+            "authorEmail": "bludaesch@illinois.edu"
+          },
+          {
+            "authorName": "Nico Franz",
+            "authorAffiliation": ["Arizona State University"],
+            "authorEmail": "nico.franz@asu.edu"
+          }
+        ],
+        "referenceData": {
+          "referenceDOI": "10.13140/RG.2.2.22893.44004",
+          "referenceURL": "https://www.researchgate.net/publication/328638121_Reproducibility_in_Ecological_Niche_Models_the_case_of_Phillips_et_al_2006",
+          "referenceFormat": "PDF"
+        },
+        "publicationData": {
+          "publicationName": "Reproducibility in Ecological Niche Models: the case of Phillips et al (2006)",
+          "publicationDate": "09/10/2018",
+          "publicationForm": "poster",
+          "publicationVenue": "Big 10 Center",
+          "publicationEvent": "Whole Tale Conference",
+          "publicationLocation": "Chicago IL, USA"
+        }
+      },
+      "targetInstance" : {
+        "description": "This research introduced the use of MaxEnt for ecological niche modeling",
+        "authorData": [
+          {
+            "authorName": "Steven J. Phillips",
+            "authorAffiliation": ["AT&T Labs-Research"],
+            "authorEmail": "phillips@research.att.com"
+          },
+          {
+            "authorName": "Robert P. Anderson",
+            "authorAffiliation": [
+              "Department of Biology, City College of the City University of New York",
+              "Division of Vertebrate Zoology (Mammalogy), American Museum of Natural History"
+            ],
+            "authorEmail": "anderson@sci.ccny.cuny.edu"
+          },
+          {
+            "authorName": "Robert E. Schapire",
+            "authorAffiliation": [ "Computer Science Department, Princeton University" ],
+            "authorEmail": "nico.franz@asu.edu"
+          }
+        ],
+        "referenceData": {
+          "referenceDOI": "10.1016/j.ecolmodel.2005.03.026",
+          "referenceURL": "https://www.sciencedirect.com/science/article/pii/S030438000500267X",
+          "referenceFormat": [
+            "PDF",
+            "Web"
+          ]
+        },
+        "publicationData": {
+          "publicationName": "Maximum entropy modeling of species geographic distributions",
+          "publicationDate": "01/25/2006",
+          "publicationForm": "journalArticle",
+          "publicationJournal": "Ecological Modelling",
+          "publicationVolume": "190",
+          "publicationIssue": "3-4",
+          "publicationPages": "231-259"
+        }
+      }
+    },
+    "intentionalData": {
+      "currentIntention": {
+        "isTargetReproduction": "true",
+        "scientificHypotheses": [],
+        "methodHypotheses": [
+          {
+            "textDescription": "MaxEnt is equivalent to regularizing a log-SVM",
+            "nullHypothesis": "SVM outcomes for the same dataset and parameters are indistinguishable from those produced by MaxEnt",
+            "alternativeHypothesis": "SVM and MaxEnt outcomes are significantly different"
+          }
+        ],
+        "computationalHypotheses": [
+          {
+            "textDescription": "MaxEnt results are stable between implementations",
+            "nullHypothesis": "There are no significant differences in outcomes between MaxEnt implementations",
+            "alternativeHypothesis": "Significant differences exist between outcomes using MaxEnt implementations"
+          },
+          {
+            "textDescription": "Figure 4 can be reproduced",
+            "nullHypothesis": "There are no significant differences between Fig 4 in the paper and the figure produced by other methods",
+            "arlternativeHypothesis": "There are significant differences between Fig 4 in the paper and the figure produced by other methods"
+          },
+          {
+            "textDescription": "The original MaxEnt application is correct",
+            "nullHypothesis": "There are no significant differences between outcomes computed with a verified numerical method and the original MaxEnt implementation",
+            "alternativeHypothesis": "There are significant differences between outcomes computed with a verified numerical method and the original MaxEnt implementation"
+          }
+        ]
+      },
+      "targetIntention": {
+        "isTargetReproduction": "false",
+        "scientificHypotheses": [
+          {
+            "textDescription": "The area distribution of Bradypus variegatus matches observations.",
+            "nullHypothesis": "There is no difference between a random spatial distribution and that compared to MaxEnt in terms of extent and prediction power",
+            "alternativeHypothesis": "Random spatial distributions differ with high significance and predictive power from those generated by MaxEnt"
+          },
+          {
+            "textDescription": "The area distribution of Microryzomys minutus matches observations.",
+            "nullHypothesis": "There is no difference between a random spatial distribution and that compared to MaxEnt in terms of extent and prediction power",
+            "alternativeHypothesis": "Random spatial distributions differ with high significance and predictive power from those generated by MaxEnt"
+          }
+        ],
+        "methodHypotheses": [
+          {
+            "textDesription": "MaXEnt distribution oucomes are different when compared to other methods",
+            "nullHypothesis": "There are no significant differences in the outcome distributions of MaxEnt when compared to other methods",
+            "alternativeHypothesis": "Differences between outcome distributions of MaxEnt compared againts other methods are significant"
+          },
+          {
+            "textDesription": "MaXEnt distribution oucomes are better when compared to other methods",
+            "nullHypothesis": "There are no significant differences in the predictive power of MaxEnt when compared to other methods",
+            "alternativeHypothesis": "MaxEnt has higher predictive power when compared againts other methods"
+          }
+        ],
+        "computationalHypotheses": []
+      }
+    },
+    "operationalData": {
+
+    },
+    "resultsData": {
+      "currentData": {
+
+      },
+      "targetData": {
+        "scientificResults": [
+          "alternativeAccepted",
+          "alternativeAccepted"
+        ],
+        "methodsResults": [
+          "alternativeAccepted",
+          "alternativeAccepted"
+        ],
+        "computatioanlResults": []
+      }
+    }
+  }
+}
