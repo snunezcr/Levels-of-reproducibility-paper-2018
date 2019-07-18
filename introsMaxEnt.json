@@ -186,12 +186,15 @@
     "operationalData": {
       "reproductionProblem": {
         "problemDescription": "Estimate 2D probability distribution from positive observations using properties present in the space",
-        "problemSpace": {
-          "spaceType": "continuous",
-          "spaceField": "real",
-          "spaceGlobalDimensions": "2",
-          "spaceEmbeddedDimensions": "5",
-        },
+        "problemSpace": [
+          {
+            "spaceID": "0"
+            "spaceType": "continuous",
+            "spaceField": "real",
+            "spaceGlobalDimensions": "2",
+            "spaceEmbeddedDimensions": "5",
+          },
+        ],
         "problemEntitites": [
           {
             "entityID": "0",
@@ -203,7 +206,7 @@
         "problemInputs": [
           {
             "inputID": "0",
-            "inputType": "field",
+            "inputType": "problemSpace:0",
             "inputDensity": "dense",
             "inputConditions": [
               "georreferenced",
@@ -233,6 +236,7 @@
       },
       "reproductionAttempts": [
         {
+          "attemptID": "0",
           "attemptDescription": "Reproduce Fig 4 using origina data and scikit-learn",
           "attemptDate": "08/04/2018",
           "reproductionMethod": {
@@ -350,8 +354,202 @@
             }
           },
           "reproductionArtifact": {
-            "artifactDescription": ""
+            "artifactDescription": "Jupyter Notebook for MaxEnt using SVMs",
+            "artifactCreationDate": "08/01/2018",
+            "artifactStatus": "stable",
+            "artifactCode": {
+              "codeLanguage": {
+                "languageName": "python",
+                "languageVersion": "3.6"
+              }
+              "codeType": "interpreted",
+              "codeIsAvailable": "yes",
+              "codeIsPublic": "yes"
+            },
+            "artifactURL": "https://github.com/idaks/intros-MaxEnt/blob/master/jupyter/maxent-notebook.ipynb",
+            "artifactPointOfEntry": "none",
+            "artifactDependencies": [
+              {
+                "dependencyName": "ipywidgets",
+                "dependencyVersion"": "7.5.0"
+              },
+              {
+                "dependencyName": "IPython",
+                "dependencyVersion"": "7.6.1"
+              },
+              {
+                "dependencyName": "__future__",
+                "dependencyVersion"": "0.17.1"
+              },
+              {
+                "dependencyName": "matplotlib",
+                "dependencyVersion"": "3.1.1"
+              },
+              {
+                "dependencyName": "numpy",
+                "dependencyVersion"": "1.16.4"
+              },
+              {
+                "dependencyName": "time",
+                "dependencyVersion"": "1.0.0"
+              },
+              {
+                "dependencyName": "sklearn",
+                "dependencyVersion"": "0.21.2"
+              }
+            ]
           },
+        },
+        {
+          "attemptID": "1",
+          "attemptDescription": "Reproduce Fig 4 using original data and intros-MaxEnt",
+          "attemptDate": "08/04/2018",
+          "reproductionMethod": {
+            "methodDescription": "MaxEnt through direct optimization using stochastic gradient descent",
+            "abstractMethod": {
+              "methodName": "Maximum Entropy",
+              "methodReference": "10.1103/PhysRev.106.620"
+            },
+            "concreteMethod": {
+              "methodName": "MaxEnt with stochastic gradient descent",
+              "methodReference": "arXiv:1609.04747"
+            },
+            "methodAdaptation": {
+              "adaptationMapping": {
+                "mappingType": "argument-based",
+                "mappingStructure": [
+                  "parameter-to-parameter",
+                  "data-to-data"
+                ]
+              },
+              "adaptationReference": "10.1111/j.1600-0587.2013.07872.x"
+            }
+          },
+          "reproductionData": [
+            {
+              "datasetID": "0",
+              "datasetDescription": "Geographical area coverages in the original study",
+              "datasetInputID": "0",
+              "datasetObject": {
+                "datasetName": "coverages.zip",
+                "datasetContentFormat": "ASC",
+                "datasetURL": "https://biodiversityinformatics.amnh.org/open_source/maxent/coverages.zip"
+              }
+            },
+            {
+              "datasetID": "1",
+              "datasetDescription": "Measured environmental variables for the area coverages in the original study",
+              "datasetInputID": "0"
+              "datasetObject": {
+                "datasetName": "ipcc.zip",
+                "datasetContentFormat": "ASC",
+                "datasetURL": "https://biodiversityinformatics.amnh.org/open_source/maxent/ipcc.zip"
+              }
+            },
+            {
+              "datasetID": "2",
+              "datasetDescription": "Positive observation data points in the original study",
+              "datasetInputID": "1",
+              "datasetObject": {
+                "datasetName": "ipcc.zip",
+                "datasetContentFormat": "ASC",
+                "datasetURL": "https://biodiversityinformatics.amnh.org/open_source/maxent/ipcc.zip"
+              }
+            },
+          ],
+          "reproductionParameters": [
+            {
+              "parameterID": "0",
+              "parameterDescription": "Convergence threshold",
+              "parameterDataType": "double",
+              "parameterValue": "1.0e-5"
+            },
+            {
+              "parameterID": "1",
+              "parameterDescription": "Maximum iterations",
+              "parameterDataType": "int",
+              "parameterValue": "1000"
+            },
+            {
+              "parameterID": "2",
+              "parameterDescription": "Regularization value",
+              "parameterDataType": "double",
+              "parameterValue": "1.0e-4"
+            }
+          ],
+          "reproductionSetup": {
+            "setupDescription": "Jupyter inside the Whole Tale",
+            "setupGeneralEnvironment": {
+              "environmentName": "The Whole Tale",
+              "environmentVersion": "1.3",
+              "environmentURL": "http://wholetale.org/",
+              "enviromentRequiresAuth": "true",
+              "environmentAuthentication": "Globus OAuth based",
+              "environmentArchitecture": {
+                "enviromentOS": "GNU/Linux",
+                "enviromentData": {
+                  "enviromentType": "vm",
+                  "enviromentVMController": {
+                    "vmControllerName": "Docker",
+                    "vmProcessorCount": "4",
+                    "vmControllerVersion": "17.03.0"
+                  },
+                }
+              }
+            },
+            "setupSpecificEnviroment": {
+              "environmentName": "Jupyter Notebooks",
+              "environmentVersion": "4.4.0",
+              "enviromentRequirements": [
+                {
+                  "requirementName": "python",
+                  "requirementVersion": "3.6"
+                },
+                {
+                  "requirementName": "conda",
+                  "requirementVersion": "4.6.14"
+                },
+                {
+                  "requirementName": "pip",
+                  "requirementVersion": "19.1"
+                }
+              ]
+            }
+          },
+          "reproductionArtifact": {
+            "artifactDescription": "Jupyter Notebook for MaxEnt using intros-MaxEnt",
+            "artifactCreationDate": "08/01/2018",
+            "artifactStatus": "alpha",
+            "artifactCode": {
+              "codeLanguage": {
+                "languageName": "python",
+                "languageVersion": "3.6"
+              }
+              "codeType": "interpreted",
+              "codeIsAvailable": "yes",
+              "codeIsPublic": "yes"
+            },
+            "artifactURL": "https://github.com/idaks/intros-MaxEnt",
+            "artifactPointOfEntry": "https://github.com/idaks/intros-MaxEnt/blob/master/introsmaxent/test/test_model.py",
+            "artifactDependencies": [
+              {
+                "dependencyName": "numpy",
+                "dependencyVersion"": "1.16.4"
+              },
+              {
+                "dependencyName": "pandas",
+                "dependencyVersion"": "0.24.2"
+              },
+              {
+                "dependencyName": "requests",
+                "dependencyVersion"": "2.22.0"
+              },
+              {
+                "dependencyName": "simplekml",
+                "dependencyVersion"": "1.3.1"
+              }
+            ]
+          }
         }
       ]
     },
