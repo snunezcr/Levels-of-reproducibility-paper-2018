@@ -184,10 +184,132 @@
       }
     },
     "operationalData": {
+      "reproductionProblem": {
+        "problemDescription": "Estimate 2D probability distribution from positive observations using properties present in the space",
+        "problemSpace": {
+          "spaceType": "continuous",
+          "spaceField": "real",
+          "spaceGlobalDimensions": "2",
+          "spaceEmbeddedDimensions": "5",
+        },
+        "problemEntitites": [
+          {
+            "entityID": "0",
+            "entityDescription": "positive observations with locations in a space",
+            "entityType": "point",
+            "entityDimensions": 2
+          }
+        ],
+        "problemInputs": [
+          {
+            "inputID": "0",
+            "inputType": "field",
+            "inputDensity": "dense",
+            "inputConditions": [
+              "georreferenced",
+              "2d-regular",
+              "notnull",
+              ">100"
+            ]
+          },
+          {
+            "inputID": "1",
+            "inputType": "point set",
+            "inputDensity": "sparse",
+            "inputConditions": [
+              "georreferenced",
+              "notnull",
+              ">5"
+            ]
+          }
+        ],
+        "problemOutput": [
+          {
+            "outputType": "probability-density",
+            "outputDimension": "2",
+            "outputEmbeddedDimension": "1"
+          }
+        ]
+      },
       "reproductionAttempts": [
         {
           "attemptDescription": "Reproduce Fig 4 using origina data and scikit-learn",
           "attemptDate": "08/04/2018",
+          "reproductionMethod": {
+            "methodDescription": "MaxEnt through Regularization of an SVM",
+            "abstractMethod": {
+              "methodName": "Maximum Entropy",
+              "methodReference": "10.1103/PhysRev.106.620"
+            },
+            "concreteMethod": {
+              "methodName": "Regularized Support Vector Machine",
+              "methodReference": "10.1109/IALP.2012.20"
+            },
+            "methodAdaptation": {
+              "adaptationMapping": {
+                "mappingType": "argument-based",
+                "mappingStructure": [
+                  "parameter-to-parameter",
+                  "condition-to-parameter",
+                  "data-to-testset",
+                  "data-to-trainset"
+                ]
+              },
+              "adaptationReference": "10.1111/j.1600-0587.2013.07872.x"
+            }
+          },
+          "reproductionData": [
+            {
+              "datasetID": "0",
+              "datasetDescription": "Geographical area coverages in the original study",
+              "datasetInputID": "0",
+              "datasetObject": {
+                "datasetName": "coverages.zip",
+                "datasetContentFormat": "ASC",
+                "datasetURL": "https://biodiversityinformatics.amnh.org/open_source/maxent/coverages.zip"
+              }
+            },
+            {
+              "datasetID": "1",
+              "datasetDescription": "Measured environmental variables for the area coverages in the original study",
+              "datasetInputID": "0"
+              "datasetObject": {
+                "datasetName": "ipcc.zip",
+                "datasetContentFormat": "ASC",
+                "datasetURL": "https://biodiversityinformatics.amnh.org/open_source/maxent/ipcc.zip"
+              }
+            },
+            {
+              "datasetID": "2",
+              "datasetDescription": "Positive observation data points in the original study",
+              "datasetInputID": "1",
+              "datasetObject": {
+                "datasetName": "ipcc.zip",
+                "datasetContentFormat": "ASC",
+                "datasetURL": "https://biodiversityinformatics.amnh.org/open_source/maxent/ipcc.zip"
+              }
+            },
+          ],
+          "reproductionParameters": [
+            {
+              "parameterID": "0",
+              "parameterDescription": "Convergence threshold",
+              "parameterDataType": "double",
+              "parameterValue": "1.0e-5"
+            },
+            {
+              "parameterID": "1",
+              "parameterDescription": "Maximum iterations",
+              "parameterDataType": "int",
+              "parameterValue": "1000"
+            },
+            {
+              "parameterID": "2",
+              "parameterDescription": "Regularization value",
+              "parameterDataType": "double",
+              "parameterValue": "1.0e-4"
+            }
+          ],
           "reproductionSetup": {
             "setupDescription": "Jupyter inside the Whole Tale",
             "setupGeneralEnvironment": {
@@ -213,18 +335,22 @@
               "environmentVersion": "4.4.0",
               "enviromentRequirements": [
                 {
-                  "requirementName": "Python",
+                  "requirementName": "python",
                   "requirementVersion": "3.6"
                 },
                 {
-                  "requirementName": "Conda",
+                  "requirementName": "conda",
                   "requirementVersion": "4.6.14"
+                },
+                {
+                  "requirementName": "pip",
+                  "requirementVersion": "19.1"
                 }
               ]
             }
           },
           "reproductionArtifact": {
-            "artifactDescription": 
+            "artifactDescription": ""
           },
         }
       ]
